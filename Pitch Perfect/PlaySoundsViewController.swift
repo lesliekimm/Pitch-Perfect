@@ -14,6 +14,7 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var rabbitButton: UIButton!
     
     var audioPlayer: AVAudioPlayer!
+    var receivedAudio: RecordedAudio!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +33,25 @@ class PlaySoundsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     @IBAction func playSlow(sender: UIButton) {
         audioPlayer.stop()
         audioPlayer.rate = 0.5
+        audioPlayer.currentTime = 0.0
         audioPlayer.play()
     }
+    
+    @IBAction func playFast(sender: UIButton) {
+        audioPlayer.stop()
+        audioPlayer.rate = 2.0
+        audioPlayer.currentTime = 0.0
+        audioPlayer.play()
+    }
+    
+    @IBAction func stopPlay(sender: UIButton) {
+        audioPlayer.stop()
+    }
+    
     /*
     // MARK: - Navigation
 
